@@ -1,7 +1,6 @@
 +++
 date = '2025-05-01T10:43:51+01:00'
 title = 'Learning Go: Channels'
-draft = true
 +++
 
 Recently, I've been on a journey to learn <a href="https://go.dev" target="_blank">Go</a>. One of its defining features, is the concept of <a href="https://go.dev/doc/effective_go#channels" target="_blank">Channels</a>.
