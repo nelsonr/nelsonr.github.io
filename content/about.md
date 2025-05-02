@@ -16,3 +16,11 @@ I like to try new things, be it programming languages, libraries, or just playin
 The goal for this blog is to be a place where I can share whatever interests me at the present moment.
 
 Hope you enjoy your stay. :)
+
+## Social
+
+You can find me online in these places:
+
+- [LinkedIn](https://www.linkedin.com/in/nelson-rodrigues-847676104)
+- [Codepen](https://codepen.io/nelsonr)
+- [Github](https://github.com/nelsonr)

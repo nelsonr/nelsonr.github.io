@@ -20,14 +20,19 @@ mode = 'auto'
 customcss = ["css/theme.css"]
 
 [[params.social]]
+name = 'Linkedin'
+icon = 'linkedin'
+url = 'https://www.linkedin.com/in/nelson-rodrigues-847676104'
+
+[[params.social]]
 name = 'Github'
 icon = 'github'
 url = 'https://github.com/nelsonr'
 
 [[params.social]]
-name = 'Linkedin'
-icon = 'linkedin'
-url = 'https://www.linkedin.com/in/nelson-rodrigues-847676104'
+name = 'Codepen'
+icon = 'codepen'
+url = 'https://codepen.io/nelsonr'
 
 [[menu.main]]
 name = 'Home'
