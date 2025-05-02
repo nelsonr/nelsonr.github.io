@@ -11,6 +11,10 @@ copyright = "© Nelson Rodrigues"
     [markup.goldmark.renderer]
       unsafe = true
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [params]
 mode = 'auto'
 customcss = ["css/theme.css"]
