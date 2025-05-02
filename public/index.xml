@@ -21,7 +21,7 @@
       <link>http://localhost:1313/posts/go-channels/</link>
       <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/go-channels/</guid>
-      <description>&lt;p&gt;Recently, I&amp;rsquo;ve been on a journey to learn &lt;a href=&#34;https://go.dev&#34; target=&#34;_blank&#34;&gt;Go&lt;/a&gt;. One of its defining features, is the concept of &lt;a href=&#34;https://go.dev/doc/effective_go#channels&#34; target=&#34;_blank&#34;&gt;Channels&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Channels are the way Go enables communication between asynchronous functions, which in Go are called &lt;a href=&#34;https://go.dev/doc/effective_go#goroutines&#34; target=&#34;_blank&#34;&gt;goroutines&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Recently, I&amp;rsquo;ve been on a journey to learn &lt;a href=&#34;https://go.dev&#34; target=&#34;_blank&#34;&gt;Go&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;One of its defining features, is the concept of &lt;a href=&#34;https://go.dev/doc/effective_go#channels&#34; target=&#34;_blank&#34;&gt;Channels&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Channels are the way Go enables communication between asynchronous code, which in Go takes the name of &lt;a href=&#34;https://go.dev/doc/effective_go#goroutines&#34; target=&#34;_blank&#34;&gt;goroutines&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

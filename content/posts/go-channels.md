@@ -3,9 +3,11 @@ title = 'Learning Go: Channels'
 date = '2025-05-02'
 +++
 
-Recently, I've been on a journey to learn <a href="https://go.dev" target="_blank">Go</a>. One of its defining features, is the concept of <a href="https://go.dev/doc/effective_go#channels" target="_blank">Channels</a>.
+Recently, I've been on a journey to learn <a href="https://go.dev" target="_blank">Go</a>.
 
-Channels are the way Go enables communication between asynchronous functions, which in Go are called <a href="https://go.dev/doc/effective_go#goroutines" target="_blank">goroutines</a>.
+One of its defining features, is the concept of <a href="https://go.dev/doc/effective_go#channels" target="_blank">Channels</a>.
+
+Channels are the way Go enables communication between asynchronous code, which in Go takes the name of <a href="https://go.dev/doc/effective_go#goroutines" target="_blank">goroutines</a>.
 
 <!--more-->
 
@@ -125,9 +127,9 @@ go func() {
 }()
 ```
 
-Next, we're calling creating two goroutines, one for the receiver and another for the sender. You might wonder why the the goroutine for sender is different?
+Next, we're creating two goroutines, one for the receiver and another for the sender. You might wonder why the goroutine for the sender is different?
 
-In this case we want to react to when the `sender()` function finishes, to do some clean up and trigger the end of our program.
+In this case we want to react to when the `sender()` function finishes, to do some clean up and to trigger the end of our program.
 
 After the `sender()` terminates, we're using `close()` function to close the channel, to let any other functions that might be consuming it, that no more messages will be sent. This causes the `receiver()` function to terminate as well.
 
@@ -160,6 +162,8 @@ As expected, we see four "Tick!" messages before finishing with a "BOOM!".
 For the full, documented code, check it <a href="https://gist.github.com/nelsonr/040a2d89b32fc7b767dbc443b78f8f28" target="_blank">here</a>.
 
 ## Conclusion
+
+As you see, channels are very powerful feature and there's more that can be done with them than just this simple example. We just covered the surface.
 
 Hope you've enjoyed this small trip to the land of Go channels! And more importantly, that you feel you've learned something new. I sure did.
 
