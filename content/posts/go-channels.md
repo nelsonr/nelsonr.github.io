@@ -131,7 +131,7 @@ Next, we're creating two goroutines, one for the receiver and another for the se
 
 In this case we want to react to when the `sender()` function finishes, to do some clean up and to trigger the end of our program.
 
-After the `sender()` terminates, we're using `close()` function to close the channel, to let any other functions that might be consuming it, that no more messages will be sent. This causes the `receiver()` function to terminate as well.
+After the `sender()` terminates, we're using `close()` function to close the channel, to let any other consumers know, that no more messages will be sent. This causes the `receiver()` function to terminate as well.
 
 Lastly, we send a message to our second channel that has been waiting all this time.
 
@@ -139,7 +139,7 @@ Lastly, we send a message to our second channel that has been waiting all this t
 <-done
 ```
 
-Because reading from a channel is blocking action, until a message is sent, the program won't proceed.
+Because reading from a channel is a blocking action, until a message is sent, the program won't proceed.
 
 ```Go
 done <- true
