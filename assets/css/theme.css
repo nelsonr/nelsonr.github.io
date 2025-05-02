@@ -1,0 +1,31 @@
+:root {
+    --darkMaincolor: #FFB254;
+}
+
+p {
+    font-size: 0.95rem;
+    font-family: "Roboto Mono", sans-serif;
+}
+
+blockquote {
+    border-color: rgb(0 0 0 / 0.5);
+    background-color: rgb(0 0 0 / 0.05);
+    color: inherit;
+    padding: 1px 16px;
+}
+
+code {
+    font-weight: bold;
+}
+
+@media (prefers-color-scheme: dark) {
+    code {
+        color: #232323;
+        background-color: rgb(255 255 255 / 0.8);
+    }
+
+    blockquote {
+        border-color: rgb(255 255 255 / 0.5);
+        background-color: rgb(255 255 255 / 0.05);
+    }
+}
