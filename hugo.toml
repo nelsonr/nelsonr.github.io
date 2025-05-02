@@ -1,4 +1,36 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://brainstorm.github.io'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Brainstorm'
 theme = 'archie'
+copyright = "© Nelson Rodrigues"
+
+[markup]
+  [markup.highlight]
+    style = "github-dark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+mode = 'auto'
+customcss = ["css/theme.css"]
+
+[[params.social]]
+name = 'Github'
+icon = 'github'
+url = 'https://github.com/nelsonr'
+
+[[params.social]]
+name = 'Linkedin'
+icon = 'linkedin'
+url = 'https://www.linkedin.com/in/nelson-rodrigues-847676104'
+
+[[menu.main]]
+name = 'Home'
+url = '/'
+weight = 1
+
+[[menu.main]]
+name = 'About'
+url = '/about'
+weight = 2
