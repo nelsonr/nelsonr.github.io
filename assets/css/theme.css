@@ -1,5 +1,8 @@
 :root {
+    /* --maincolor: #ec1338; */
+    --maincolor: #F25A73;
     --darkMaincolor: #FFB254;
+    --hovercolor: var(--maincolor);
 }
 
 p {
@@ -18,7 +21,26 @@ code {
     font-weight: bold;
 }
 
-@media (prefers-color-scheme: dark) {
+footer {
+    flex-wrap: wrap;
+}
+
+footer > div:not(:last-child)::after {
+    content: "|";
+    margin-inline: 0.5rem;
+}
+
+.social-links {
+    display: flex;
+}
+
+.soc {
+    display: inline-flex;
+    position: relative;
+    top: 2px;
+}
+
+@media screen and (prefers-color-scheme: dark) {
     code {
         color: #232323;
         background-color: rgb(255 255 255 / 0.8);
@@ -27,5 +49,9 @@ code {
     blockquote {
         border-color: rgb(255 255 255 / 0.5);
         background-color: rgb(255 255 255 / 0.05);
+    }
+
+    .draft-label {
+        background-color: #4c3315;
     }
 }
