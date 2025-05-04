@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 :root {
     /* --maincolor: #ec1338; */
-    --maincolor: #F25A73;
-    --darkMaincolor: #FFB254;
+    --maincolor: #f25a73;
+    --darkMaincolor: #ffb254;
     --hovercolor: var(--maincolor);
     --bordercl: #ffb6c1;
     --draftColor: var(--maincolor);
@@ -9,8 +11,11 @@
 }
 
 p {
-    font-size: 0.95rem;
-    font-family: "Roboto Mono", sans-serif;
+    font-size: 14px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 blockquote {
@@ -22,6 +27,15 @@ blockquote {
 
 code {
     font-weight: bold;
+}
+
+pre code {
+    font-weight: normal;
+}
+
+section.list-item .description a {
+    pointer-events: none;
+    border: none;
 }
 
 .draft-label {
@@ -52,7 +66,7 @@ footer > div:not(:last-child)::after {
     :root {
         --bordercl: #555;
         --draftColor: var(--darkMaincolor);
-        --draftBg:#4c3315;
+        --draftBg: #4c3315;
     }
 
     code {
