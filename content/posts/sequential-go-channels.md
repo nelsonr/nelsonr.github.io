@@ -153,9 +153,9 @@ Using the `defer` keyword is the way to schedule anything to be done before the 
 
 In our case, these examples are quite simple, so we could just put the `close()` function at the end of the body of the function. But in a real scenario, our functions probably have multiple exit points and would require us to not forget to the close the channel at each point. Using the `defer` operator, saves us from having to do that.
 
-After closing a channel, any consumers of the channel get notified that no more messages will be sent and can exit after processing the current message.
+After closing a channel, any consumers of the channel get notified that no more messages will be sent and can exit after they're done processing their current message.
 
-In summary, closing the `orders` channel, makes the `baker()` function to terminate, which closes the `baked` channel, which terminates the `decorator` function and so forth, until the a message is sent to the `done` channel defined in the `main()` function, which ends our program.
+In summary, closing the `orders` channel, makes the `baker()` function to terminate, which closes the `baked` channel, which terminates the `decorator` function and so forth, until a message is sent to the `done` channel, defined in the `main()` function, which ends our program.
 
 > The full code is accessible [here](https://gist.github.com/nelsonr/49b272f7c2a4c50a67d52dc268bd473a).
 
