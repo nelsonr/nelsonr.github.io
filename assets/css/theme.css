@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    /* --maincolor: #ec1338; */
+    --bgColor: #FFF;
+    --textColor: #232333;
     --maincolor: #f25a73;
     --darkMaincolor: #ffb254;
     --hovercolor: var(--maincolor);
@@ -10,8 +11,12 @@
     --draftBg: #f9f2f4;
 }
 
+img {
+    border: none;
+}
+
 p {
-    font-size: 14px;
+    font-size: 0.9333333333333333em; /* 14px */
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -62,11 +67,21 @@ footer > div:not(:last-child)::after {
     top: 2px;
 }
 
+.display-center {
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (prefers-color-scheme: dark) {
     :root {
         --bordercl: #555;
         --draftColor: var(--darkMaincolor);
         --draftBg: #4c3315;
+    }
+
+    ::selection {
+        background-color: var(--darkMaincolor);
+        color: var(--textColor);
     }
 
     code {
