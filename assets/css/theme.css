@@ -39,6 +39,10 @@ pre code {
     font-weight: normal;
 }
 
+figcaption {
+    text-align: center;
+}
+
 section.list-item .description a {
     pointer-events: none;
     border: none;
