@@ -110,6 +110,55 @@ There's more functions that we can play with, check the examples below:
 
 Pretty neat, right?
 
+<div class="tabs" id="tabs-01">
+    <div class="tabs-header">
+        <div data-index="1" class="tabs-item tabs--active">Square</div>
+        <div data-index="2" class="tabs-item">Triangle</div>
+        <div data-index="3" class="tabs-item">Rhombus</div>
+    </div>
+    <div class="tabs-body">
+        <div data-index="1" class="tabs-item tabs--active">
+{{< highlight css >}}
+.rect {
+    clip-path: rect(20% 80% 80% 20% round 10%);
+    transition: clip-path 300ms ease-out;
+    border-radius: 4px;
+}
+
+.rect:hover {
+    clip-path: rect(0px 200px 200px 0px);
+}
+{{< /highlight >}}
+        </div>
+        <div data-index="2" class="tabs-item">
+{{< highlight css >}}
+.tri {
+    clip-path: polygon(50% 20%, 50% 20%, 20% 80%, 80% 80%);
+    transition: clip-path 300ms ease-out;
+    border-radius: 4px;
+}
+
+.tri:hover {
+    clip-path: polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%);
+}
+{{< /highlight >}}
+        </div>
+        <div data-index="3" class="tabs-item">
+{{< highlight css >}}
+.rhombus {
+    clip-path: polygon(50% 20%, 80% 50%, 50% 80%, 20% 50%);
+    transition: clip-path 300ms ease-out;
+    border-radius: 4px;
+}
+
+.rhombus:hover {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+{{< /highlight >}}
+        </div>
+    </div>
+</div>
+
 ## Color fill transition
 
 <style>

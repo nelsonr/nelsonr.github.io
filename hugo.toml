@@ -17,7 +17,8 @@ copyright = "© Nelson Rodrigues"
 
 [params]
 mode = 'auto'
-customcss = ["css/theme.css"]
+customcss = ["css/theme.css", "css/tabs.css"]
+customJS = ["js/tabs.js"]
 
 [[params.social]]
 name = 'Linkedin'

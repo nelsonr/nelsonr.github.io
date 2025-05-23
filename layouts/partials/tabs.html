@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+    <style>
+        .tabs-header,
+        .tabs-body {
+            display: flex;
+            justify-content: start;
+        }
+
+        .tabs-header {
+            border-bottom: 1px solid #333;
+        }
+
+        .tabs-header .tabs-item {
+            padding: 8px 16px;
+            background-color: rgb(0 0 0 / 30%);
+            cursor: pointer;
+
+            &:first-child {
+                border-top-left-radius: 8px;
+            }
+
+            &:last-child {
+                border-top-right-radius: 8px;
+            }
+        }
+
+        .tabs-header .tabs-item:not(.tabs--active):hover {
+            background-color: rgb(0 0 0 / 35%);
+        }
+
+        .tabs-header .tabs--active {
+            background-color: rgb(0 0 0 / 40%);
+        }
+
+        .tabs-body .tabs-item {
+            padding: 8px 16px;
+        }
+
+        .tabs-body .tabs-item:not(.tabs--active) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tabs" id="tabs-01">
+        <div class="tabs-header">
+            <div data-index="1" class="tabs-item tabs--active">Tab 1</div>
+            <div data-index="2" class="tabs-item">Tab 2</div>
+            <div data-index="3" class="tabs-item">Tab 3</div>
+        </div>
+        <div class="tabs-body">
+            <div data-index="1" class="tabs-item tabs--active">Tab 1 Content</div>
+            <div data-index="2" class="tabs-item">Tab 2 Content</div>
+            <div data-index="3" class="tabs-item">Tab 3 Content</div>
+        </div>
+    </div>
+    <script>
+        function Tabs(elemId) {
+            const rootEl = document.getElementById(elemId);
+            const tabsHeaderItems = rootEl.querySelectorAll(".tabs-header .tabs-item");
+            const tabsBodyItems = rootEl.querySelectorAll(".tabs-body .tabs-item");
+
+            onClick = (ev) => {
+                const currentIndex = ev.currentTarget.getAttribute("data-index");
+
+                tabsHeaderItems.forEach((tabsItem) => {
+                    if (ev.currentTarget == tabsItem) {
+                        tabsItem.classList.add("tabs--active");
+                    } else {
+                        tabsItem.classList.remove("tabs--active");
+                    }
+                });
+
+                tabsBodyItems.forEach((tabsItem) => {
+                    const index = tabsItem.getAttribute("data-index");
+
+                    if (currentIndex === index) {
+                        tabsItem.classList.add("tabs--active");
+                    } else {
+                        tabsItem.classList.remove("tabs--active");
+                    }
+                });
+            }
+
+            tabsHeaderItems.forEach((tabsItem) => tabsItem.addEventListener("click", onClick))
+        }
+
+        Tabs("tabs-01");
+    </script>
+</body>
+
+</html>
