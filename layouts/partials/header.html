@@ -100,6 +100,16 @@
 		</script>
 	{{- end -}}
 
+    <style type="text/css" media="screen">
+        @media (prefers-color-scheme: dark) {
+            {{ partial "css/syntax-dark.css" . | safeCSS }}
+        }
+    
+        @media (prefers-color-scheme: light) {
+            {{ partial "css/syntax-light.css" . | safeCSS }}
+        }
+    </style>
+
 	<!-- Custom CSS style get applied last -->
 	{{- if isset .Site.Params "customcss" }}
 		{{ range .Site.Params.customCSS }}

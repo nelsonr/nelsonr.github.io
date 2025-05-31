@@ -63,23 +63,23 @@ We add the `clip-path` property and use the `circle()` function to create a circ
 There's more functions that we can play with, check the examples below:
 
 <style>
-    .rect {
+    .square {
         clip-path: rect(20% 80% 80% 20% round 10%);
         transition: clip-path 300ms ease-out;
         border-radius: 4px;
     }
 
-    .rect:hover {
+    .square:hover {
         clip-path: rect(0px 200px 200px 0px);
     }
 
-    .tri {
+    .triangle {
         clip-path: polygon(50% 20%, 50% 20%, 20% 80%, 80% 80%);
         transition: clip-path 300ms ease-out;
         border-radius: 4px;
     }
 
-    .tri:hover {
+    .triangle:hover {
         clip-path: polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%);
     }
 
@@ -95,11 +95,11 @@ There's more functions that we can play with, check the examples below:
 </style>
 <div class="example">
     <figure>
-        <img src="/images/kitty.jpg" alt="A kitty sunbathing in a outside sofa" width="200" height="200" class="rect">
+        <img src="/images/kitty.jpg" alt="A kitty sunbathing in a outside sofa" width="200" height="200" class="square">
         <figcaption>Hover the picture</figcaption>
     </figure>
     <figure>
-        <img src="/images/kitty.jpg" alt="A kitty sunbathing in a outside sofa" width="200" height="200" class="tri">
+        <img src="/images/kitty.jpg" alt="A kitty sunbathing in a outside sofa" width="200" height="200" class="triangle">
         <figcaption>Hover the picture</figcaption>
     </figure>
     <figure>
@@ -119,26 +119,26 @@ Pretty neat, right?
     <div class="tabs-body">
         <div data-index="1" class="tabs-item tabs--active">
 {{< highlight css >}}
-.rect {
+.square {
     clip-path: rect(20% 80% 80% 20% round 10%);
     transition: clip-path 300ms ease-out;
     border-radius: 4px;
 }
 
-.rect:hover {
+.square:hover {
     clip-path: rect(0px 200px 200px 0px);
 }
 {{< /highlight >}}
         </div>
         <div data-index="2" class="tabs-item">
 {{< highlight css >}}
-.tri {
+.triangle {
     clip-path: polygon(50% 20%, 50% 20%, 20% 80%, 80% 80%);
     transition: clip-path 300ms ease-out;
     border-radius: 4px;
 }
 
-.tri:hover {
+.triangle:hover {
     clip-path: polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%);
 }
 {{< /highlight >}}

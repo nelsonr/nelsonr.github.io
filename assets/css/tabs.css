@@ -10,7 +10,7 @@
 
 .tabs-header .tabs-item {
     padding: 8px 16px;
-    background-color: rgb(0 0 0 / 10%);
+    background-color: rgb(0 0 0 / 5%);
     cursor: pointer;
 
     &:first-child {
@@ -23,11 +23,22 @@
 }
 
 .tabs-header .tabs-item:not(.tabs--active):hover {
-    background-color: rgb(0 0 0 / 30%);
+    background-color: rgb(0 0 0 / 10%);
 }
 
 .tabs-header .tabs--active {
-    background-color: rgb(0 0 0 / 40%);
+    background-color: rgb(0 0 0 / 10%);
+    position: relative;
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: var(--maincolor);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
 }
 
 .tabs-body {
@@ -35,7 +46,6 @@
 }
 
 .tabs-body .tabs-item {
-    padding: 8px 0;
     flex: 1;
 }
 
@@ -49,4 +59,10 @@
 
 .tabs-body .tabs-item .highlight {
     width: 100%;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    .tabs-header .tabs--active {
+        background-color: rgb(0 0 0 / 40%);
+    }
 }

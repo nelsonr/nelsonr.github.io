@@ -6,7 +6,7 @@ copyright = "© Nelson Rodrigues"
 
 [markup]
   [markup.highlight]
-    style = "github-dark"
+    noClasses = false
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
