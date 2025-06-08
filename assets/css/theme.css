@@ -43,6 +43,10 @@ code {
     font-weight: bold;
     padding: 0px 4px;
     border-radius: 2px;
+
+    &::before {
+        display: none;
+    }
 }
 
 pre code {
@@ -90,8 +94,13 @@ footer > div:not(:last-child)::after {
 .padding-s {
     padding: 8px;
 }
+
 .padding-none {
     padding: 0;
+}
+
+.margin-top-base {
+    margin-top: 16px;
 }
 
 @media screen and (prefers-color-scheme: dark) {

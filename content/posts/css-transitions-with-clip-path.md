@@ -1,7 +1,7 @@
 +++
 title = 'CSS transitions with clip-path'
-date = '2025-05-10'
-draft = true
+date = '2025-06-08'
+draft = false
 +++
 
 One of the more "recent" additions to CSS is {{< link url="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path" text="clip-path" >}} property. It essentially allows you to add a mask to any content. Anything inside the mask region is shown, while anything outside of it becomes hidden.
@@ -24,7 +24,7 @@ Let's start with something simple:
 <style>
     .circle {
         clip-path: circle(35%);
-        transition: clip-path 300ms ease-out;
+        transition: clip-path 400ms ease-out;
         border-radius: 4px;
     }
 
@@ -108,9 +108,7 @@ There's more functions that we can play with, check the examples below:
     </figure>
 </div>
 
-Pretty neat, right?
-
-<div class="tabs" id="tabs-01">
+<div class="tabs margin-top-base" id="tabs-01">
     <div class="tabs-header">
         <div data-index="1" class="tabs-item tabs--active">Square</div>
         <div data-index="2" class="tabs-item">Triangle</div>
@@ -159,98 +157,46 @@ Pretty neat, right?
     </div>
 </div>
 
-## Color fill transition
+Pretty neat, right?
+
+In the examples above, we used both the `rect()` and `polygon()` functions to create and transition from custom shapes.
+
+There are other available functions, such as `path()`, albeit, more difficult to transition into, since you need to keep the same number of points and curves.
 
 <style>
-.transitions {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    justify-items: center;
-    gap: 1em;
-}
+    .heart {
+        clip-path: path("M59.2969 107.724L94.5898 140.859C96.0547 142.234 97.9883 143 100 143C102.012 143 103.945 142.234 105.41 140.859L140.703 107.724C146.641 102.165 150 94.3677 150 86.2165V85.0773C150 71.3479 140.137 59.6416 126.68 57.3828C117.773 55.8901 108.711 58.8167 102.344 65.2198L100 67.5768L97.6562 65.2198C91.2891 58.8167 82.2266 55.8901 73.3203 57.3828C59.8633 59.6416 50 71.3479 50 85.0773V86.2165C50 94.3677 53.3594 102.165 59.2969 107.724Z");
+        transition: clip-path 300ms ease-out;
+        border-radius: 4px;
+    }
 
-.card {
-    display: grid;
-    cursor: pointer;
-    font-size: 1.1em;
-    line-height: 1;
-}
-
-.card__default,
-.card__transition {
-    grid-column: 1;
-    grid-row: 1;
-    width: 200px;
-    height: 200px;
-    background-color: #131313;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: hotpink;
-    font-weight: bold;
-}
-
-.card__transition {
-    color: #131313;
-    background-color: hotpink;
-    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
-    transition: all 200ms ease-out;
-}
-
-.ex-01:hover .card__transition {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-}
-
-.ex-02 .card__transition {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
-}
-
-.ex-02:hover .card__transition {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-}
-
-.ex-03:hover .card__transition {
-    clip-path: polygon(0% 0%, 200% 0%, 100% 100%, 0% 100%);
-}
-
-.ex-04:hover .card__transition {
-    clip-path: polygon(0% 0%, 100% 0%, 200% 100%, 0% 100%);
-}
+    .heart:hover {
+        clip-path: path("M18.5937 101.344L89.1797 167.242C92.1094 169.977 95.9766 171.5 100 171.5C104.023 171.5 107.891 169.977 110.82 167.242L181.406 101.344C193.281 90.2891 200 74.7813 200 58.5703V56.3047C200 29 180.273 5.71875 153.359 1.22656C135.547 -1.74219 117.422 4.07813 104.688 16.8125L100 21.5L95.3125 16.8125C82.5781 4.07813 64.4531 -1.74219 46.6406 1.22656C19.7266 5.71875 0 29 0 56.3047V58.5703C0 74.7813 6.71875 90.2891 18.5937 101.344Z");
+    }
 </style>
 <div class="example">
-    <div class="transitions">
-        <div class="card ex-01">
-            <div class="card__default">
-                <div class="card__title">Hover me</div>
-            </div>
-            <div class="card__transition">
-                <div class="card__title">Hover me</div>
-            </div>
-        </div>
-        <div class="card ex-02">
-            <div class="card__default">
-                <div class="card__title">Hover me</div>
-            </div>
-            <div class="card__transition">
-                <div class="card__title">Hover me</div>
-            </div>
-        </div>
-        <div class="card ex-03">
-            <div class="card__default">
-                <div class="card__title">Hover me</div>
-            </div>
-            <div class="card__transition">
-                <div class="card__title">Hover me</div>
-            </div>
-        </div>
-        <div class="card ex-04">
-            <div class="card__default">
-                <div class="card__title">Hover me</div>
-            </div>
-            <div class="card__transition">
-                <div class="card__title">Hover me</div>
-            </div>
-        </div>
-    </div>
+    <figure>
+        <img src="/images/kitty.jpg" alt="A kitty sunbathing in a outside sofa" width="200" height="200" class="heart">
+        <figcaption>Hover the picture</figcaption>
+    </figure>
 </div>
+
+```CSS
+.heart {
+    clip-path: path("M59.2969 107.724L94.5898 140.859C96.0547 142.234 97.9883 143 100 143C102.012 143 103.945 142.234 105.41 140.859L140.703 107.724C146.641 102.165 150 94.3677 150 86.2165V85.0773C150 71.3479 140.137 59.6416 126.68 57.3828C117.773 55.8901 108.711 58.8167 102.344 65.2198L100 67.5768L97.6562 65.2198C91.2891 58.8167 82.2266 55.8901 73.3203 57.3828C59.8633 59.6416 50 71.3479 50 85.0773V86.2165C50 94.3677 53.3594 102.165 59.2969 107.724Z");
+    transition: clip-path 300ms ease-out;
+    border-radius: 4px;
+}
+
+.heart:hover {
+    clip-path: path("M18.5937 101.344L89.1797 167.242C92.1094 169.977 95.9766 171.5 100 171.5C104.023 171.5 107.891 169.977 110.82 167.242L181.406 101.344C193.281 90.2891 200 74.7813 200 58.5703V56.3047C200 29 180.273 5.71875 153.359 1.22656C135.547 -1.74219 117.422 4.07813 104.688 16.8125L100 21.5L95.3125 16.8125C82.5781 4.07813 64.4531 -1.74219 46.6406 1.22656C19.7266 5.71875 0 29 0 56.3047V58.5703C0 74.7813 6.71875 90.2891 18.5937 101.344Z");
+}
+```
+
+## Transition out
+
+Hope you've enjoyed this short tour of CSS transitions with `clip-path` and that, hopefully, you learned something new.
+
+There's more to this, but this post has been in the oven for so long, that I just wanted to get it out. I'll probably end up making a second part in the near future.
+
+Look forward to it!
