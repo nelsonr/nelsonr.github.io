@@ -117,6 +117,9 @@
 		<link rel="stylesheet" type="text/css" href="{{ $customstyle.Permalink }}">
 		{{ end }}
 	{{- end -}}
+	{{- with .Params.css }}
+	<link rel="stylesheet" type="text/css" href="{{ absURL . }}">
+	{{- end }}
 	{{- range .Site.Params.customJS }}
 	{{- if or (hasPrefix . "http://") (hasPrefix . "https://") }}
 	<script src="{{ . }}"></script>

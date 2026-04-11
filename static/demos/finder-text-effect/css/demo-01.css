@@ -1,0 +1,23 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    margin-top: 16px;
+}
+
+#movie-quote {
+    padding-block: 8px;
+}
+
+#movie-quote span {
+    outline: 1px dashed hotpink;
+}
+
+#display-size {
+    color: hotpink;
+    font-weight: bold;
+}

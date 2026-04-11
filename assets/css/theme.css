@@ -7,6 +7,7 @@ html {
 :root {
     --bgColor: #fff;
     --textColor: #232333;
+    --textInvertedColor: #fff;
     --maincolor: #f25a73;
     --darkMaincolor: #ffb254;
     --hovercolor: var(--maincolor);
@@ -27,9 +28,13 @@ p {
     font-size: 1rem;
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal;
     line-height: unset;
+}
+
+strong {
+    font-weight: 600;
 }
 
 blockquote {
@@ -55,6 +60,13 @@ pre code {
 
 figcaption {
     text-align: center;
+}
+
+iframe {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    border: none;
 }
 
 section.list-item .description a {
@@ -103,15 +115,66 @@ footer > div:not(:last-child)::after {
     margin-top: 16px;
 }
 
+/* --- Open External Button --- */
+
+.open-external {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 4px;
+
+    svg {
+        width: 24px;
+        height: 24px;
+        max-height: 24px;
+    }
+}
+
+.demo:has(iframe) .open-external {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 1;
+}
+
+/* --- Demo --- */
+
+.demo {
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin: 24px 0;
+}
+
+.demo::before {
+    content: "DEMO";
+    background-color: var(--maincolor);
+    color: var(--textInvertedColor);
+    padding: 4px 8px;
+    font-size: 0.6em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1.45;
+    position: absolute;
+    top: 0;
+    left: 16px;
+    transform: translateY(-50%);
+}
+
+/* --- Dark Theme --- */
+
 @media screen and (prefers-color-scheme: dark) {
     :root {
+        --textInvertedColor: #232333;
         --bordercl: #555;
         --maincolor: var(--darkMaincolor);
         --draftBg: #4c3315;
+        --textColor: #fff;
     }
 
     ::selection {
         color: var(--textColor);
+        background-color: var(--darkMaincolor);
     }
 
     code {
@@ -122,5 +185,9 @@ footer > div:not(:last-child)::after {
     blockquote {
         border-color: rgb(255 255 255 / 0.5);
         background-color: rgb(255 255 255 / 0.05);
+    }
+
+    .demo {
+        border-color: rgba(255, 255, 255, 0.1);
     }
 }
