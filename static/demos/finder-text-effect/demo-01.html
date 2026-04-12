@@ -9,21 +9,19 @@
     </head>
     <body>
         <div id="demo-01">
-            <form>
-                <input
-                    type="text"
-                    name="text"
-                    value="You can't handle the truth!"
-                />
-                <button type="submit">Measure</button>
-            </form>
-
-            <section>
+            <div class="specimen-card">
+                <span class="specimen-label">Measured text</span>
                 <div id="movie-quote">
                     <span>You can't handle the truth!</span>
                 </div>
-                <div id="display-size">Size: <span></span></div>
-            </section>
+                <div class="measurement-row">
+                    <div id="ruler"></div>
+                    <div id="display-size"></div>
+                </div>
+                <div class="card-footer">
+                    <button type="button" id="next-quote">Random quote</button>
+                </div>
+            </div>
         </div>
 
         <script type="text/javascript" src="js/demo-01.js"></script>

@@ -1,16 +1,20 @@
-function clampText(text, maxChars) {
-  let result = text;
-
-  if (text.length > maxChars) {
-    const half = Math.floor(maxChars / 2);
-    const firstHalf = text.slice(0, half);
-    const secondHalf = text.slice(text.length - half);
-
-    result = `${firstHalf}…${secondHalf}`;
-  }
-
-  return result;
-}
+const QUOTES = [
+  "You can't handle the truth!",
+  "I'll be back.",
+  "Here's looking at you, kid.",
+  "May the Force be with you.",
+  "You talking to me?",
+  "To infinity and beyond!",
+  "Why so serious?",
+  "Just keep swimming.",
+  "There's no place like home.",
+  "Elementary, my dear Watson.",
+  "I see dead people.",
+  "Houston, we have a problem.",
+  "My precious.",
+  "You had me at hello.",
+  "Frankly, my dear, I don't give a damn.",
+];
 
 function createCanvasCtx(textElem) {
   const { fontStyle, fontFamily, fontSize } = getComputedStyle(textElem);
@@ -29,30 +33,32 @@ function measureTextWidth(ctx, text) {
   return ctx.measureText(text).width;
 }
 
-function measureAndDisplay(ctx, textElem, displayElem) {
+function measureAndDisplay(ctx, textElem, displayElem, rulerElem) {
   const width = measureTextWidth(ctx, textElem.textContent);
-  displayElem.textContent = `${width}px`;
+  displayElem.textContent = `${width.toFixed(2)}px`;
+  rulerElem.style.width = `${width}px`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("form");
-  const displayElem = document.querySelector("#display-size span");
-
-  // Get a reference to the HTML element
+  const btn = document.querySelector("#next-quote");
+  const displayElem = document.querySelector("#display-size");
+  const rulerElem = document.querySelector("#ruler");
   const textElem = document.querySelector("#movie-quote span");
 
-  // Create a canvas 2d context using the HTML element
   const ctx = createCanvasCtx(textElem);
 
-  // Calculate the display width of the text element
-  measureAndDisplay(ctx, textElem, displayElem);
+  let currentIndex = 0;
 
-  form.addEventListener("submit", (ev) => {
-    ev.preventDefault();
-    const formData = new FormData(ev.target);
-    const inputValue = formData.get("text");
+  // Measure the initial quote on load
+  measureAndDisplay(ctx, textElem, displayElem, rulerElem);
 
-    textElem.textContent = inputValue;
-    measureAndDisplay(ctx, textElem, displayElem);
+  btn.addEventListener("click", () => {
+    let nextIndex;
+    do {
+      nextIndex = Math.floor(Math.random() * QUOTES.length);
+    } while (nextIndex === currentIndex);
+    currentIndex = nextIndex;
+    textElem.textContent = QUOTES[currentIndex];
+    measureAndDisplay(ctx, textElem, displayElem, rulerElem);
   });
 });

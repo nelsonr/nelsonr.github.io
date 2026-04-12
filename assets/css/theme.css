@@ -118,15 +118,31 @@ footer > div:not(:last-child)::after {
 /* --- Open External Button --- */
 
 .open-external {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 32px;
     height: 32px;
     padding: 0;
-    border-radius: 4px;
+    border: none;
+    border-radius: 8px;
+    background: none;
+    color: rgb(0 0 0 / 1);
+    cursor: pointer;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+
+    &:hover {
+        background-color: rgb(0 0 0 / 0.08);
+        color: rgb(0 0 0 / 1);
+        border: none;
+    }
 
     svg {
-        width: 24px;
-        height: 24px;
-        max-height: 24px;
+        width: 18px;
+        height: 18px;
+        max-height: 18px;
     }
 }
 
@@ -189,5 +205,14 @@ footer > div:not(:last-child)::after {
 
     .demo {
         border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .open-external {
+        color: rgb(255 255 255 / 0.7);
+
+        &:hover {
+            background-color: rgb(255 255 255 / 0.08);
+            color: rgb(255 255 255 / 1);
+        }
     }
 }

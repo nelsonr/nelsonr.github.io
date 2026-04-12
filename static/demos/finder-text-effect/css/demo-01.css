@@ -1,23 +1,133 @@
+:root {
+    --card-padding: var(--space-4);
+    --card-radius: 12px;
+    --ruler-tick-width: 1.5px;
+    --ruler-tick-height: 10px;
+}
+
 body {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: var(--space-5) var(--space-3);
 }
 
-section {
-    margin-top: 16px;
+#demo-01 {
+    width: 100%;
+    max-width: 580px;
 }
+
+/* ---- Specimen card ---- */
+
+.specimen-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle graph-paper grid */
+.specimen-card::before {
+    --line-color: color(from var(--border) srgb r g b / 0.04);
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--line-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line-color) 1px, transparent 1px);
+    background-size: var(--space-2) var(--space-2);
+    pointer-events: none;
+}
+
+.specimen-label {
+    display: block;
+    font-size: 0.7em;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: var(--space-2);
+    position: relative;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--space-1);
+}
+
+.card-footer button {
+    font-size: 0.875em;
+}
+
+/* ---- Text specimen ---- */
 
 #movie-quote {
-    padding-block: 8px;
+    position: relative;
+    margin-bottom: var(--space-0);
 }
 
 #movie-quote span {
-    outline: 1px dashed hotpink;
+    font-family: "Lora", Georgia, serif;
+    font-size: 1.4em;
+    font-weight: 400;
+    color: var(--text);
+    display: inline-block;
+    position: relative;
+    padding-block: var(--space-1);
+}
+
+/* ---- Measurement ruler ---- */
+
+.measurement-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+}
+
+#ruler {
+    position: relative;
+    width: 0;
+    min-width: 2px;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Left tick */
+#ruler::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--ruler-tick-width);
+    height: var(--ruler-tick-height);
+    background: var(--accent);
+    border-radius: 1px;
+}
+
+/* Right tick */
+#ruler::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--ruler-tick-width);
+    height: var(--ruler-tick-height);
+    background: var(--accent);
+    border-radius: 1px;
 }
 
 #display-size {
-    color: hotpink;
-    font-weight: bold;
+    font-family: monospace;
+    font-size: 0.8em;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: -0.02em;
 }

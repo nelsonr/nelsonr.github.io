@@ -1,0 +1,13 @@
+{{ $src := .Get "src" }}
+{{ $height := .Get "height" | default "300" }}
+<div class="demo">
+    <iframe
+        src="{{ $src }}"
+        height="{{ $height }}"
+    ></iframe>
+    <a class="open-external" href="{{ $src }}" target="_blank" title="Open demo in a new tab" aria-label="Open demo in a new tab">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.66667 16V8C6.66667 7.26363 7.26363 6.66667 8 6.66667H24C24.7364 6.66667 25.3333 7.26363 25.3333 8V24C25.3333 24.7364 24.7364 25.3333 24 25.3333H16M10.8148 16H16M16 16V21.1852M16 16L6.66667 25.3333" stroke="currentColor" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+</div>

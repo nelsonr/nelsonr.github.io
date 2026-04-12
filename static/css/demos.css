@@ -1,17 +1,169 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
+:root {
+    --accent: rgb(242 90 115);
+    --text: rgb(35 35 51);
+    --text-muted: rgb(35 35 51 / 0.5);
+    --bg: rgb(248 248 248);
+    --surface: rgb(255 255 255);
+    --border: rgb(35 35 51 / 0.15);
+    --radius: 6px;
+
+    /* 8px spacing grid */
+    --space-0: 4px;
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 40px;
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text);
     margin: 0;
     height: 100vh;
-    background-color: #f3f3f3;
+    background-color: var(--bg);
 }
 
-input,
+/* --- Typography --- */
+
+p {
+    margin: 0 0 0.75em;
+}
+
+small {
+    font-size: 0.8em;
+    color: var(--text-muted);
+}
+
+/* --- Form elements --- */
+
+.form-field {
+    display: flex;
+    gap: var(--space-1);
+}
+
+label {
+    display: block;
+    font-size: 0.8em;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="search"],
+input[type="url"],
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: var(--space-1) 12px;
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: 300;
+    color: var(--text);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    outline: none;
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+    appearance: none;
+
+    &:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgb(242 90 115 / 0.15);
+    }
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
 button {
-    padding: 8px 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: var(--space-1) var(--space-2);
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: 500;
+    color: rgb(255 255 255);
+    background-color: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: filter 0.15s ease;
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+
+    &:active {
+        filter: brightness(0.95);
+    }
+}
+
+button.secondary {
+    color: var(--text);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+
+    &:hover {
+        filter: none;
+        background-color: var(--bg);
+    }
+}
+
+/* --- Range input --- */
+
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+/* --- Dark theme --- */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --accent: rgb(255 178 84);
+        --text: rgb(240 240 238);
+        --text-muted: rgb(240 240 238 / 0.45);
+        --bg: rgb(23 24 27);
+        --surface: rgb(51 52 56);
+        --border: rgb(240 240 238 / 0.2);
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="search"],
+    input[type="url"],
+    select,
+    textarea {
+        &:focus {
+            box-shadow: 0 0 0 3px rgb(255 178 84 / 0.2);
+        }
+    }
+
+    button {
+        color: rgb(23 24 27);
+    }
 }

@@ -103,14 +103,4 @@ First, we have the `createCanvasCtx()` function, that expects an HTML element as
 
 Here's a live example that you can play with:
 
-<div id="demo-01" class="demo">
-    <iframe 
-        src="/demos/finder-text-effect/demo-01.html" 
-        height="300" 
-    ></iframe>
-    <button class="open-external" title="Open demo in a new tab" aria-label="Open demo in a new tab">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6.66667 16V8C6.66667 7.26363 7.26363 6.66667 8 6.66667H24C24.7364 6.66667 25.3333 7.26363 25.3333 8V24C25.3333 24.7364 24.7364 25.3333 24 25.3333H16M10.8148 16H16M16 16V21.1852M16 16L6.66667 25.3333" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </button>
-</div>
+{{< iframe-demo src="/demos/finder-text-effect/demo-01.html" height="300" >}}
