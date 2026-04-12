@@ -147,7 +147,7 @@ input[type="range"] {
         --text: rgb(240 240 238);
         --text-muted: rgb(240 240 238 / 0.45);
         --bg: rgb(23 24 27);
-        --surface: rgb(51 52 56);
+        --surface: rgb(32 33 36);
         --border: rgb(240 240 238 / 0.2);
     }
 
