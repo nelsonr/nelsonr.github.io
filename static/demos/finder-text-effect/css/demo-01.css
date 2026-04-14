@@ -68,6 +68,7 @@ body {
 #movie-quote {
     position: relative;
     margin-bottom: var(--space-0);
+    white-space: nowrap;
 }
 
 #movie-quote span {
