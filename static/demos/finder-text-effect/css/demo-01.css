@@ -18,9 +18,9 @@ body {
     max-width: 580px;
 }
 
-/* ---- Specimen card ---- */
+/* ---- Card ---- */
 
-.specimen-card {
+.card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--card-radius);
@@ -30,7 +30,7 @@ body {
 }
 
 /* Subtle graph-paper grid */
-.specimen-card::before {
+.card::before {
     --line-color: color(from var(--border) srgb r g b / 0.04);
     content: "";
     position: absolute;
@@ -42,7 +42,7 @@ body {
     pointer-events: none;
 }
 
-.specimen-label {
+.card__label {
     display: block;
     font-size: 0.7em;
     font-weight: 600;
@@ -53,13 +53,13 @@ body {
     position: relative;
 }
 
-.card-footer {
+.card__footer {
     display: flex;
     justify-content: flex-end;
     margin-top: var(--space-1);
 }
 
-.card-footer button {
+.card__footer button {
     font-size: 0.875em;
 }
 

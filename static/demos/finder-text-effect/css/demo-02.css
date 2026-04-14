@@ -1,0 +1,97 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-5) var(--space-3);
+}
+
+#demo-02 {
+    width: 100%;
+    max-width: 400px;
+}
+
+.resizable {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: var(--space-3) var(--space-4);
+    min-width: 120px;
+    max-width: 100%;
+    position: relative;
+}
+
+.resizable--resizing {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.resize-handle {
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    bottom: -1px;
+    width: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: col-resize;
+    color: color(from var(--border) srgb r g b / 0.6);
+    transition: color 0.15s ease;
+    z-index: 1;
+}
+
+/* Left border strip */
+.resize-handle::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--border);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: transparent;
+    transition:
+        border-color 0.15s ease,
+        background 0.15s ease;
+}
+
+/* Three-dot grip */
+.resize-handle::after {
+    content: "";
+    position: relative;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow:
+        0 -7px 0 currentColor,
+        0 7px 0 currentColor;
+    transition: box-shadow 0.15s ease;
+}
+
+.resize-handle:hover {
+    color: var(--accent);
+}
+
+.resize-handle:hover::before {
+    border-color: var(--accent);
+    background: color(from var(--accent) srgb r g b / 0.22);
+}
+
+.resizable--resizing .resize-handle {
+    color: var(--accent);
+}
+
+.resizable--resizing .resize-handle::before {
+    border-color: var(--accent);
+    background: color(from var(--accent) srgb r g b / 0.32);
+}
+
+#my-text {
+    margin: 0;
+    font-size: 1.2em;
+    font-family: "Lora", Georgia, serif;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+}

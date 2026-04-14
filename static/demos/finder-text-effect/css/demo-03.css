@@ -1,0 +1,119 @@
+:root {
+    --card-padding: var(--space-4);
+    --card-radius: 12px;
+    --ruler-tick-width: 1.5px;
+    --ruler-tick-height: 10px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-5) var(--space-3);
+}
+
+#demo-03 {
+    width: 100%;
+    max-width: 580px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    position: relative;
+    overflow: hidden;
+}
+
+.card__body {
+    overflow-x: auto;
+}
+
+/* ---- Table ---- */
+
+.filenames-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.filenames-table th,
+.filenames-table td {
+    padding: 9px var(--space-2);
+    text-align: left;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.filenames-table th {
+    font-size: 0.75em;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background-color: color(from var(--border) srgb r g b / 0.02);
+    border-bottom: 1px solid color(from var(--border) srgb r g b / 0.08);
+    position: relative;
+}
+
+.filenames-table td {
+    font-size: 0.95em;
+    color: var(--text);
+}
+
+.filenames-table tr:nth-child(even) {
+    background-color: color(from var(--border) srgb r g b / 0.04);
+}
+
+.filenames-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.filenames-table tbody tr:hover td {
+    background-color: color(from var(--accent) srgb r g b / 0.05);
+}
+
+.filenames-table--resizing {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* ---- Column widths ---- */
+
+.filenames-table col.col-filename {
+    width: var(--col-filename-width, 65%);
+}
+
+/* ---- Resize handle ---- */
+
+.filenames-table th.col-filename {
+    position: relative;
+}
+
+.resize-handle {
+    position: absolute;
+    right: 1px;
+    top: 0;
+    bottom: 0;
+    width: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: col-resize;
+    color: var(--border);
+    transition: color 0.15s ease;
+    transform: translateX(50%);
+    z-index: 1;
+}
+
+.resize-handle::before {
+    content: "";
+    position: absolute;
+    inset: var(--space-0) 5px;
+    border-right: 1px solid currentColor;
+}
+
+.resize-handle:hover {
+    color: var(--accent);
+}

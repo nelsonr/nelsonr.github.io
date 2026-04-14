@@ -16,8 +16,8 @@ const QUOTES = [
   "Frankly, my dear, I don't give a damn.",
 ];
 
-function createCanvasCtx(textElem) {
-  const { fontStyle, fontFamily, fontSize } = getComputedStyle(textElem);
+function createCanvasCtx(textEl) {
+  const { fontStyle, fontFamily, fontSize } = getComputedStyle(textEl);
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
 
@@ -33,24 +33,24 @@ function measureTextWidth(ctx, text) {
   return ctx.measureText(text).width;
 }
 
-function measureAndDisplay(ctx, textElem, displayElem, rulerElem) {
-  const width = measureTextWidth(ctx, textElem.textContent);
-  displayElem.textContent = `${width.toFixed(2)}px`;
-  rulerElem.style.width = `${width}px`;
+function measureAndDisplay(ctx, textEl, displayEl, rulerEl) {
+  const width = measureTextWidth(ctx, textEl.textContent);
+  displayEl.textContent = `${width.toFixed(2)}px`;
+  rulerEl.style.width = `${width}px`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.querySelector("#next-quote");
-  const displayElem = document.querySelector("#display-size");
-  const rulerElem = document.querySelector("#ruler");
-  const textElem = document.querySelector("#movie-quote span");
+  const displayEl = document.querySelector("#display-size");
+  const rulerEl = document.querySelector("#ruler");
+  const textEl = document.querySelector("#movie-quote span");
 
-  const ctx = createCanvasCtx(textElem);
+  const ctx = createCanvasCtx(textEl);
 
   let currentIndex = 0;
 
   // Measure the initial quote on load
-  measureAndDisplay(ctx, textElem, displayElem, rulerElem);
+  measureAndDisplay(ctx, textEl, displayEl, rulerEl);
 
   btn.addEventListener("click", () => {
     let nextIndex;
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       nextIndex = Math.floor(Math.random() * QUOTES.length);
     } while (nextIndex === currentIndex);
     currentIndex = nextIndex;
-    textElem.textContent = QUOTES[currentIndex];
-    measureAndDisplay(ctx, textElem, displayElem, rulerElem);
+    textEl.textContent = QUOTES[currentIndex];
+    measureAndDisplay(ctx, textEl, displayEl, rulerEl);
   });
 });
