@@ -218,7 +218,7 @@ If you're still reading this far, thank you! Hope you've enjoyed this small expl
 
 It's something minimal, but it's neat details like this that end up making a difference to the overall experience of the applications we use daily.
 
-The full code of the presented demos is available on [github](https://github.com/nelsonr/nelsonr.github.io/tree/main/static/demos/finder-text-effect).
+The full code of the presented demos is available on [Github](https://github.com/nelsonr/nelsonr.github.io/tree/main/static/demos/finder-text-effect).
 
 In this exploration we didn't use any frontend framework and that was intentional. It would have introduced an extra layer of complexity and made the code examples less approachable. 
 
