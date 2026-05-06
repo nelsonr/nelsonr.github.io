@@ -1,0 +1,8 @@
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default "" }}
+{{ $width := .Get "width" | default "200" }}
+{{ $caption := .Get "caption" }}
+<div class="image">
+    <img src="{{ $src }}" width="{{ $width }}" alt="{{ $alt }}" />
+    {{- if $caption }}<small>{{ $caption }}</small>{{ end -}}
+</div>

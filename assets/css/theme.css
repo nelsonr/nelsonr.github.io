@@ -28,6 +28,13 @@ img {
     border: none;
 }
 
+ol,
+li {
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+}
+
 p {
     font-size: 1rem;
     font-family: "Inter", sans-serif;
@@ -117,6 +124,19 @@ footer > div:not(:last-child)::after {
 
 .margin-top-base {
     margin-top: 16px;
+}
+
+/* --- Image --- */
+
+.image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 1em;
+
+    small {
+        font-size: 0.75rem;
+    }
 }
 
 /* --- Open External Button --- */
