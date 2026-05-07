@@ -55,6 +55,11 @@ blockquote {
     padding: 1px 16px;
 }
 
+article a {
+    border-bottom-width: 1px;
+    color: var(--maincolor);
+}
+
 code {
     font-weight: bold;
     padding: 0px 4px;
@@ -225,6 +230,10 @@ footer > div:not(:last-child)::after {
     blockquote {
         border-color: rgb(255 255 255 / 0.5);
         background-color: rgb(255 255 255 / 0.05);
+    }
+
+    article a {
+        color: var(--darkMaincolor);
     }
 
     .demo {
