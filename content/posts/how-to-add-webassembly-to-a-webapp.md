@@ -251,4 +251,4 @@ Hope this guide was educational and useful for you. If you never dealt with WebA
 
 I know that this example was rather basic and not really demonstrative of all features WebAssembly is capable of but it's important to start with baby steps. It's also important to just be aware of it, so now you know, and that's cool!
 
-If you're interested in learning more about it the **webassembly.org** has a [resources page](https://webassembly.org/community/resources/) with other sources you can explore.
+If you're interested in learning more about it, **webassembly.org** has a [resources page](https://webassembly.org/community/resources/) with other sources you can explore.
