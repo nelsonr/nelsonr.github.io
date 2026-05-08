@@ -1,10 +1,11 @@
 +++
 title = 'How to add WebAssembly to a web app'
-date = '2026-05-05'
-draft = true
+date = '2026-05-08'
 +++
 
-[WebAssembly](https://webassembly.org) is the new, hot thing! Just kidding. It has been around since 2017. It's (almost) a 10 years old technology, ancient, by the JavaScript [framework standards](https://dayssincelastjsframework.com). Nonetheless, if you have been doing regular web stuff in the last decade, you probably have heard of it but, never or very rarely touched it. Let's change that!
+[WebAssembly](https://webassembly.org) is the new, hot thing! Just kidding. It has been around since 2017. It's (almost) a 10 years old technology, ancient, by the JavaScript [framework standards](https://dayssincelastjsframework.com). Nonetheless, if you have been doing regular web stuff in the last decade, you probably have heard of it but, never or very rarely touched it, let's change that. 
+
+In this guide we're going to explore how simple is to integrate WebAssembly into a web app using the Rust programming language and tools.
 
 <!--more-->
 
@@ -22,7 +23,7 @@ To create a WebAssembly program, you typically refer to a low-level language, su
 
 ## Who are you people?!
 
-For this exercise we're going to build a **mOckIng TExT geNeratoR**, like those seen on SpongeBob memes. Genius level idea, I know. But hopefully you'll learn something useful in the process.
+For this guide we're going to build a **mOckIng TExT geNeratoR**, like those seen on SpongeBob memes. Genius level idea, I know. But hopefully you'll learn something useful in the process.
 
 {{< image src="/images/mocking-spongebob.jpeg" width="200" alt="spongebob crushing JS developers' spirits" caption="Your average JS developer" >}}
 
@@ -30,7 +31,7 @@ Jokes aside, here is a [demo](https://nelsonr.github.io/vite-wasm-demo) similar 
 
 Let's start! We'll use [Vite](https://vite.dev) to create the web app. Run the following command in your terminal to create the web app:
 
-```Bash
+```bash
 npm create vite@latest
 ```
 
@@ -74,7 +75,7 @@ npm run dev
 
 Navigate to [http://localhost:5173](http://localhost:5173) and if all went as planned, you should see something like this on your browser:
 
-{{< image src="/images/mocking-spongebob-example.png" width="600" alt="Example of web app" >}}
+{{< image src="/images/mocking-spongebob-example-01.png" width="600" alt="Example of web app" >}}
 
 ## Crab attack!
 
@@ -135,7 +136,7 @@ cargo install wasm-pack
 
 It's finally time to do some coding. Let's start with `lib.rs` file. Replace its contents with the following:
 
-```Rust
+```rust
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -180,11 +181,11 @@ wasm
     └── wasm_bg.wasm.d.ts
 ```
 
-Here's our `.wasm` file! Look at it! There's also a `wasm.js` file, this includes the glue code between JavaScript and the `.wasm` file. Lastly we have some TypeScript type definition files and, a `package.json`. This is our local NPM package, let's add it to our web app.
+Here's our `.wasm` file! Look at it! There's also a `wasm.js` file that includes the boilerplate code for loading the `.wasm` file. Lastly we have some TypeScript type definition files and, a `package.json`. This is the local npm package that we'll add to our web app.
 
 Open the `package.json` file in the project root and the dependency to the `pkg` directory:
 
-```JSON
+```json
 {
   // ...
   "dependencies": {
@@ -195,10 +196,59 @@ Open the `package.json` file in the project root and the dependency to the `pkg`
 
 > If you're using [pnpm](https://pnpm.io) use `link:` instead of `file:`
 
-Run the following command in the project root to install the new NPM dependency:
+Run the following command in the project root to install the new npm dependency:
 
 ```bash
 npm install
 ```
 
-Now if you peek inside the `node_modules` directory, there should be a shortcut to the `wasm` folder.
+Now if you peek inside the `node_modules` directory, there should be a shortcut to the `wasm` folder. That's it for creating the WebAssembly code.
+
+## Final segment
+
+This is last stretch. All that remains is adding the TypeScript code to the `main.ts` file to load our `wasm` module and use it.
+
+Edit the `main.ts` file and add a new `import`:
+
+```typescript
+import init, { get_mocking_text } from "wasm";
+```
+
+In the line above we import two things. First the `init` method, that loads the `.wasm` file and second, the `get_mocking_text` method that we created in `lib.rs`.
+
+Next, let's create a `main` method with the logic of the web app.
+
+Add the following to the `main.ts` file:
+
+```typescript
+function main() {
+  const textInput = document.getElementById("text-input")!;
+  const preview = document.getElementById("preview")!;
+
+  textInput.addEventListener("input", (ev) => {
+    const target = ev.target as HTMLInputElement;
+    const result = get_mocking_text(target.value);
+    preview.textContent = result;
+  });
+}
+
+init().then(main);
+```
+
+Once again, the code itself is quite simple, our method simply finds the DOM elements for the text input and the preview area, attaches a listener to the `input` event of the text input and calls the Rust method with the value of the element. Finally, it takes the result and displays it in the preview area.
+
+In the last line we use call the `init()` method imported earlier to load the `wasm` module and, since it returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), we call `.then()` with our `main` as callback argument.
+
+That's it! Try typing in the text input and the see how the text changes in the preview area.
+
+{{< image src="/images/mocking-spongebob-example-02.png" width="600" alt="Example of web app" >}}
+
+A live example is available [here](https://nelsonr.github.io/mocking-spongebob/) and the complete source code [here](https://github.com/nelsonr/mocking-spongebob).
+
+# Conclusion
+
+Hope this guide was educational and useful for you. If you never dealt with WebAssembly or Rust before, congratulations! Go ahead and update your Linkedin profile! Just kidding.
+
+I know that this example was rather basic and not really demonstrative of all features WebAssembly is capable of but it's important to start with baby steps. It's also important to just be aware about it, so now you know, and that's cool!
+
+If you're interested in learning more about it the **webassembly.org** has a [resources page](https://webassembly.org/community/resources/) with other sources you can explore.
