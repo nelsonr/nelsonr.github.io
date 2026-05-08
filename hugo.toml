@@ -35,6 +35,10 @@ name = 'Codepen'
 icon = 'codepen'
 url = 'https://codepen.io/nelsonr'
 
+[outputs]
+home = ['HTML', 'RSS']
+section = ['HTML', 'RSS']
+
 [[menu.main]]
 name = 'Home'
 url = '/'
@@ -44,3 +48,4 @@ weight = 1
 name = 'About'
 url = '/about'
 weight = 2
+

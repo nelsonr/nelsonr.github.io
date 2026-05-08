@@ -10,6 +10,9 @@
     </div>
     <div class="copyright">{{ dateFormat "2006" now }} {{ with .Site.Copyright }} {{ . }}{{ end }}</div>
     <div class="built-with">Built with <a href="https://gohugo.io">Hugo</a></div>
+    {{ with .OutputFormats.Get "rss" -}}
+    <div class="rss-link"><a href="{{ .Permalink }}" title="RSS Feed">RSS</a></div>
+    {{- end }}
 </footer>
 {{ if not hugo.IsServer }}
 {{ template "_internal/google_analytics.html" . }}
