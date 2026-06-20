@@ -1,4 +1,4 @@
-baseURL = 'https://brainstorm.github.io'
+baseURL = 'https://nelson.pub/'
 languageCode = 'en-us'
 title = 'Brainstorm'
 theme = 'archie'
