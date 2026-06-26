@@ -16,7 +16,7 @@ Your overall experience is irrelevant in their eyes.
 
 > Do you have X years of experience in Y? No? Not interested.
 
-You're discarded with the same regard as the level of attention they pay to your CV, which almost none.
+You're discarded with the same regard as the level of attention they pay to your CV, which is almost none.
 
 At multiple points through my career, I changed into positions where I didn't had much, or no, experience with stack being used and still managed to do fine.
 
