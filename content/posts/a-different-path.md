@@ -26,5 +26,5 @@ So, from an early age, with the perfect mode of entertainment in my hands, I was
 
 So, with this in mind. When I took the decision to leave my previous company and being burned out. I decided that I had enough of working for other people and that it was time to try create something for myself. I have been brewing some ideas and I know that it will be very challenging, but if not now, when?
 
-Will it succeed? I don't know. What if it fails? Then I go back to the old rat race, If I have to. Such is life. But it's a risk I'm willing to take.
+Will it succeed? I don't know. What if it fails? Then I go back to the old rat race, If I have to. Such is life. It's a risk I'm willing to take.
 
